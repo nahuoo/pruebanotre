@@ -50,6 +50,7 @@ export const FilmCard = ({category}:any)  =>{
             rounded={'lg'}
             height={300}
             width={282}
+            alt='coverfoto'
             objectFit={'cover'}
             src={category.foto}
             _hover={{

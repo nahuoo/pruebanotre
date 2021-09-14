@@ -53,7 +53,7 @@ export const BlogAuthor: React.FC<BlogAuthorProps> = (props) => {
 const ArticleList = () => {
   return (
     <Container maxW={'7xl'} p="12">
-      <Heading as="h1">Nuestro asdaisdjaosid</Heading>
+      <Heading >Nuestro asdaisdjaosid</Heading>
       <Box
         marginTop={{ base: '1', sm: '5' }}
         display="flex"
@@ -110,7 +110,7 @@ const ArticleList = () => {
             color={useColorModeValue('gray.700', 'gray.200')}
             fontSize="lg">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
+            industry. Lorem Ipsum has been the industrys standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book.
           </Text>

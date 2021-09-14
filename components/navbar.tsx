@@ -31,7 +31,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
       textDecoration: 'none',
       color: useColorModeValue('gray.300', 'gray.700'),
     }}
-    href={'#'}
+    href={'#about'}
   >
     {children}
   </Link>
@@ -42,48 +42,91 @@ export const Navbar = () => {
 
   return (
     <>
-        <Box mt={{md:'22px'}} pos='fixed' w='100%' bg={useColorModeValue('transparent', 'gray.900')} px={4}>
-      
-          <Flex
-            h={16}
-            alignItems={'center'}
-            pr={20}
-            pl={20}
-            justifyContent={{ base: 'space-between', md: 'space-between' }}
-          >
-                <Box fontSize={20}
-          >0749 Producciones
-              </Box>
-            <IconButton
-              size={'md'}
-              icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-              aria-label={'Open Menu'}
-              display={{ md: 'none' }}
-              onClick={isOpen ? onClose : onOpen}
-            />
-            <HStack fontSize="18px" spacing={8} alignItems={'center'}>             
-              <HStack
-                as={'nav'}
-                spacing={4}
-                display={{ base: 'none', md: 'flex' }}
+      <Box
+        mt={{ md: '22px' }}
+        pos="fixed"
+        w="100%"
+        bg={useColorModeValue('transparent', 'gray.900')}
+        px={{base:'0',md:'4'}}
+      >
+        <Flex
+          h={16}
+          w={'inherit'}
+          alignItems={'center'}
+          pr={{base:'0',md:'20'}}
+          pl={{base:'0',md:'20'}}
+          justifyContent={{ base: 'space-around', md: 'space-between' }}
+        >
+          <Box fontSize={20}>0749 Producciones</Box>
+          <IconButton
+            size={'md'}
+            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+            aria-label={'Open Menu'}
+            display={{ md: 'none' }}
+            onClick={isOpen ? onClose : onOpen}
+          />
+          <HStack fontSize="18px" spacing={8} alignItems={'center'}>
+            <HStack
+              as={'nav'}
+              spacing={4}
+              display={{ base: 'none', md: 'flex' }}
+            >
+              <Link
+                px={2}
+                py={1}
+                rounded={'md'}
+                color={'white'}
+                transition={'all .3s ease'}
+                _hover={{
+                  textDecoration: 'none',
+                  color: useColorModeValue('gray.300', 'gray.700'),
+                }}
+                href={'#about'}
               >
-                {Links.map((link) => (
-                  <NavLink key={link}>{link}</NavLink>
-                ))}
-              </HStack>
+                Nosotros
+              </Link>
+              <Link
+                px={2}
+                py={1}
+                rounded={'md'}
+                color={'white'}
+                transition={'all .3s ease'}
+                _hover={{
+                  textDecoration: 'none',
+                  color: useColorModeValue('gray.300', 'gray.700'),
+                }}
+                href={'#projects'}
+              >
+                Proyectos
+              </Link>
+              <Link
+                px={2}
+                py={1}
+                rounded={'md'}
+                color={'white'}
+                transition={'all .3s ease'}
+                _hover={{
+                  textDecoration: 'none',
+                  color: useColorModeValue('gray.300', 'gray.700'),
+                }}
+                href={'#form'}
+              >
+                Contacto
+              </Link>
             </HStack>
-          </Flex>
+          </HStack>
+        </Flex>
 
-          {isOpen ? (
-            <Box pb={4} display={{ md: 'none' }}>
-              <Stack as={'nav'} spacing={4}>
-                {Links.map((link) => (
-                  <NavLink key={link}>{link}</NavLink>
-                ))}
-              </Stack>
-            </Box>
-          ) : null}
-        </Box>
+        {isOpen ? (
+          <Box pb={4} display={{ md: 'none' }}>
+            <Stack as={'nav'} spacing={4}>
+              {Links.map((link) => (
+                <NavLink key={link}>{link}</NavLink>
+              ))}
+            </Stack>
+          </Box>
+        ) : null}
+      </Box>
     </>
   )
 }

@@ -6,6 +6,7 @@ import { Hero } from '../components/hero'
 import { About } from '../components/about'
 import { Footer } from '../components/footer'
 import { Box } from '@chakra-ui/layout'
+import { Form } from '../components/contact'
 export async function getStaticProps() {
   const client = createClient({
     space: 'ftv5t2jre3bg',
@@ -42,6 +43,7 @@ const Home: NextPage = ({ content }: any) => {
         <Navbar />
         <Hero />
         <About films={content[0].fields.fotos} />
+        <Form />
         <Footer />
       </Box>
     </div>

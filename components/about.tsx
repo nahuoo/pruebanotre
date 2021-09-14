@@ -1,19 +1,15 @@
 import {
-  Stack,
   Flex,
   Box,
-  Button,
   Text,
-  VStack,
   useColorModeValue,
-  useBreakpointValue,
 } from '@chakra-ui/react'
 import { FilmCard } from './filmCard'
 
 export const About = ({ films }: any) => {
   return (
     <>
-      <Flex w={'full'} bg="white" h={'80vh'} alignItems="center" justifyContent="center">
+      <Flex id='about' w={'full'} bg="white" h={'80vh'} alignItems="center" justifyContent="center">
         <Box py={10} w={'50vw'}>
           <Flex
             align={'center'}
@@ -41,7 +37,7 @@ export const About = ({ films }: any) => {
           </Text>
         </Box>
       </Flex>
-      <Flex bg="white" px='20px' justifyContent='center'>
+      <Flex direction={{base:'column', md:'row'}} id='projects' bg="white" px='20px' justifyContent='center'>
         {films.map((film: any) => (
           <FilmCard key={film.fields.title} film={film.fields} />
         ))}

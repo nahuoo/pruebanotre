@@ -1,7 +1,6 @@
 import {
   Stack,
   Flex,
-  Button,
   Box,
   Text,
   VStack,
@@ -31,12 +30,11 @@ export const Hero = () => {
           >
             <Text
               color={'white'}
-              px={80}
+              px={{base:'0',md:'80'}}
               py={5}
-              
-              fontWeight={400}
+              fontWeight={{base:'100',md:'400'}}
               lineHeight={1.2}
-              fontSize={useBreakpointValue({ base: '3xl', md: 'xl' })}
+              fontSize={useBreakpointValue({ base: 'xl', md: 'xl' })}
             >
               Somos un equipo jóven, nacido y criado junto al mar.
             </Text>

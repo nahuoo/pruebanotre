@@ -5,12 +5,19 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import { FilmCard } from './filmCard'
+import { Hero2 } from './prueba2'
 
 export const About = ({ films }: any) => {
+
+  const categories = [
+      {nombre:'Abrigos', foto:'/bikini.jpeg'},
+      {nombre: 'Beach Wear', foto:'/bikini1.jpeg'},
+      {nombre:'blusas', foto:''}
+  ]
   return (
     <>
       <Flex id='about' w={'full'} bg="white" h={'80vh'} alignItems="center" justifyContent="center">
-        <Box py={10} w={'50vw'}>
+        <Box py={15} w={'50vw'}>
           <Flex
             align={'center'}
             _before={{
@@ -37,11 +44,14 @@ export const About = ({ films }: any) => {
           </Text>
         </Box>
       </Flex>
-      <Flex direction={{base:'column', md:'row'}} id='projects' bg="white" px='20px' justifyContent='center'>
-        {films.map((film: any) => (
-          <FilmCard key={film.fields.title} film={film.fields} />
-        ))}
-      </Flex>
+      <Hero2 />
+      <Flex direction={{base:'column', md:'row'}} id='projects' bg="white" px='20px' mt='60px' justifyContent='center'>
+        {categories.map((categoria: any) => (
+          <FilmCard key={categoria.nombre} category={categoria} />
+          ))}
+          </Flex>
+        
+    
     </>
   )
 }

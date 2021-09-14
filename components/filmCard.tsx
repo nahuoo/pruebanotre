@@ -3,57 +3,32 @@ import {
   Center,
   useColorModeValue,
   Heading,
+  Text,
   Stack,
   Image,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-  Button,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
 
-export const FilmCard = ({ film }: any) => {
-  console.log(film)
-  const { isOpen, onOpen, onClose } = useDisclosure()
+const IMAGE =
+  'https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80';
+
+export const FilmCard = ({category}:any)  =>{
   return (
-    <Center py={14} onClick={onOpen}>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>{film.title}</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-           {film.description}
-          </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Cerrar
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-
+    <Center py={12} px='20px'>
       <Box
         role={'group'}
         p={6}
         maxW={'330px'}
         w={'full'}
-        justifyContent={'center'}
         bg={useColorModeValue('white', 'gray.800')}
+        boxShadow={'2xl'}
         rounded={'lg'}
         pos={'relative'}
-        zIndex={1}
-      >
+        zIndex={1}>
         <Box
           rounded={'lg'}
           mt={-12}
           pos={'relative'}
-          height={'300px'}
+          height={'230px'}
           _after={{
             transition: 'all .3s ease',
             content: '""',
@@ -62,7 +37,7 @@ export const FilmCard = ({ film }: any) => {
             pos: 'absolute',
             top: 5,
             left: 0,
-            backgroundImage: `${'https:' + film.file.url}`,
+            backgroundImage: category.foto,
             filter: 'blur(15px)',
             zIndex: -1,
           }}
@@ -70,33 +45,33 @@ export const FilmCard = ({ film }: any) => {
             _after: {
               filter: 'blur(20px)',
             },
-          }}
-        >
+          }}>
           <Image
             rounded={'lg'}
-            height={350}
-            _hover={{
-              transition: 'all .3s ease',
-              height: 310,
-              cursor: 'pointer',
-              filter: 'grayscale(80%)',
-            }}
+            height={300}
             width={282}
             objectFit={'cover'}
-            src={'https:' + film.file.url}
+            src={category.foto}
+            _hover={{
+              opacity: '85%',
+              height: '298'
+            }}
           />
         </Box>
-        <Stack pt={5} align={'center'}>
-          <Heading
-            color={'gray.600'}
-            fontSize={'xl'}
-            fontFamily={'body'}
-            fontWeight={500}
-          >
-            Más Info
+        <Stack pt={10} align={'center'}>
+          <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
+            asdasdasd
+          </Text>
+          <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
+            {category.nombre}
           </Heading>
+          <Stack direction={'row'} align={'center'}>
+            <Text fontWeight={800} fontSize={'xl'}>
+              $57
+            </Text>
+          </Stack>
         </Stack>
       </Box>
     </Center>
-  )
+  );
 }

@@ -1,7 +1,10 @@
 import {
-  Stack,
+  Button,
   Flex,
+  Heading,
+  Image,
   Box,
+  Stack,
   Text,
   VStack,
   useBreakpointValue,
@@ -9,38 +12,53 @@ import {
 
 export const Hero = () => {
   return (
-    <>
-      <Box h={'100vh'} bg="transparent"></Box>
+    <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
+
+
       <Flex
-        w={'full'}
-        h={'150vh'}
-       
+        pl={'10%'}
+        flex={1}
+        align={'center'}
+        justify={'flex-start'}
+        backgroundImage="/bikini2.jpeg"
+        backgroundSize="cover"
+        backgroundPosition="center 50%"      
       >
-        <VStack
-          w={'full'}
-          justify={'flex-start'}
-          px={useBreakpointValue({ base: 4, md: 8 })}
-          bgGradient={'linear(to-t, white, transparent)'}
-        >
-          <Stack
-            maxW={'full'}
-            align={'flex-start'}
-            bg={'grayOpacity.800'}
-            spacing={6}
-          >
+        <Stack spacing={6} w={'full'} maxW={'lg'}>
+          <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
             <Text
+              as={'span'}
+              position={'relative'}
+              _after={{
+                content: "''",
+                width: 'full',
+                height: useBreakpointValue({ base: '20%', md: '30%' }),
+                position: 'absolute',
+                bottom: 1,
+                left: 0,
+                bg: 'blue.400',
+                zIndex: -1,
+              }}
+            ></Text>
+            <br /> <Text as={'span'}>Trajes de baño epicardos</Text>{' '}
+          </Heading>
+          <Text fontSize={{ base: 'md', lg: 'lg' }} color={'white'}>
+            Trajes de baño industria de tu viejaasdasdasdasdasdasdasdas
+          </Text>
+          <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
+            <Button
+              rounded={'full'}
+              bg={'cyan.200'}
               color={'white'}
-              px={{base:'0',md:'80'}}
-              py={5}
-              fontWeight={{base:'100',md:'400'}}
-              lineHeight={1.2}
-              fontSize={useBreakpointValue({ base: 'xl', md: 'xl' })}
+              _hover={{
+                bg: 'blue.500',
+              }}
             >
-              Somos un equipo jóven, nacido y criado junto al mar.
-            </Text>
+              Ver productos
+            </Button>
           </Stack>
-        </VStack>
+        </Stack>
       </Flex>
-    </>
+    </Stack>
   )
 }

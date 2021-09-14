@@ -2,6 +2,7 @@ import {
   Stack,
   Flex,
   Button,
+  Box,
   Text,
   VStack,
   useBreakpointValue,
@@ -9,43 +10,39 @@ import {
 
 export const Hero = () => {
   return (
-    <Flex
-      w={'full'}
-      h={'100vh'}
-      backgroundImage={
-        'url(https://images.ctfassets.net/ftv5t2jre3bg/3bdByODlc3nJSdG0EDjiLb/2e51d223709f00b8e2a92de76b25a2dd/_SEA6581S.jpg)'
-      }
-      backgroundSize={'cover'}
-      backgroundPosition={'center center'}
-    >
-      <VStack
+    <>
+      <Box h={'100vh'} bg="transparent"></Box>
+      <Flex
         w={'full'}
-        justify={'center'}
-        px={useBreakpointValue({ base: 4, md: 8 })}
-        bgGradient={'linear(to-t,transparent, whiteAlpha.200)'}
+        h={'150vh'}
+       
       >
-        <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
-          <Text
-            color={'white'}
-            fontWeight={700}
-            lineHeight={1.2}
-            fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}
+        <VStack
+          w={'full'}
+          justify={'flex-start'}
+          px={useBreakpointValue({ base: 4, md: 8 })}
+          bgGradient={'linear(to-t, white, transparent)'}
+        >
+          <Stack
+            maxW={'full'}
+            align={'flex-start'}
+            bg={'grayOpacity.800'}
+            spacing={6}
           >
-            Contenidos audiovisuales con fuerte impronta autoral y de proyección
-            internacional.
-          </Text>
-          <Stack direction={'row'}>
-            <Button
-              bg={'whiteAlpha.300'}
-              rounded={'full'}
+            <Text
               color={'white'}
-              _hover={{ bg: 'whiteAlpha.500' }}
+              px={80}
+              py={5}
+              
+              fontWeight={400}
+              lineHeight={1.2}
+              fontSize={useBreakpointValue({ base: '3xl', md: 'xl' })}
             >
-              Contactános
-            </Button>
+              Somos un equipo jóven, nacido y criado junto al mar.
+            </Text>
           </Stack>
-        </Stack>
-      </VStack>
-    </Flex>
+        </VStack>
+      </Flex>
+    </>
   )
 }

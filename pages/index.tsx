@@ -4,8 +4,8 @@ import { createClient } from 'contentful'
 import { Navbar } from '../components/navbar'
 import { Hero } from '../components/hero'
 import { About } from '../components/about'
-import { Footer} from '../components/footer'
-
+import { Footer } from '../components/footer'
+import { Box } from '@chakra-ui/layout'
 export async function getStaticProps() {
   const client = createClient({
     space: 'ftv5t2jre3bg',
@@ -25,16 +25,25 @@ const Home: NextPage = ({ content }: any) => {
   console.log(content[0].fields.fotos[1].fields.title)
   return (
     <div>
-      <Head>
-        <title>0749 || Producciones</title>
-        <meta name="description" content="0749 producciones" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Box
+        backgroundImage={
+          'url(https://images.ctfassets.net/ftv5t2jre3bg/3bdByODlc3nJSdG0EDjiLb/2e51d223709f00b8e2a92de76b25a2dd/_SEA6581S.jpg)'
+        }
+        backgroundSize={'cover'}
+        backgroundPosition={'center bottom'}
+        backgroundAttachment={'fixed'}
+      >
+        <Head>
+          <title>0749 || Producciones</title>
+          <meta name="description" content="0749 producciones" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <Navbar />
-      <Hero />
-      <About films={content[0].fields.fotos}/>
-      <Footer />
+        <Navbar />
+        <Hero />
+        <About films={content[0].fields.fotos} />
+        <Footer />
+      </Box>
     </div>
   )
 }

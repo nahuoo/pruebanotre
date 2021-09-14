@@ -22,23 +22,9 @@ import {
   export const Footer = () => {
     return (
       <Box
-        bg={useColorModeValue('black.200', 'black.200')}
+        bg="whiteAlpha.900"
         color={useColorModeValue('gray.700', 'gray.200')}>
-        <Container as={Stack} maxW={'6xl'} py={10}>
-          <SimpleGrid columns={{ base: 1, sm: 2, md: 2 }} spacing={7}>
-            <Stack align={'center'}>
-              <ListHeader>Company</ListHeader>
-              <Link href={'#'}>About Us</Link>
-              <Link href={'#'}>Contact Us</Link>
-            </Stack>
-            <Stack align={'center'}>
-              <ListHeader>Seguinos</ListHeader>
-              <Link href={'#'}>Facebook</Link>
-              <Link href={'#'}>Twitter</Link>
-              <Link href={'#'}>Instagram</Link>
-            </Stack>
-          </SimpleGrid>
-        </Container>
+      
         <Box py={10}>
           <Flex
             align={'center'}

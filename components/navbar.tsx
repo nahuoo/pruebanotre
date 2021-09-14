@@ -18,7 +18,7 @@ import {
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 
-const Links = ['Proyectos', 'Nosotros', 'Contacto']
+const Links = ['Nosotros', 'Proyectos', 'Contacto']
 
 const NavLink = ({ children }: { children: ReactNode }) => (
   <Link
@@ -26,9 +26,10 @@ const NavLink = ({ children }: { children: ReactNode }) => (
     py={1}
     rounded={'md'}
     color={'white'}
+    transition={'all .3s ease'}
     _hover={{
       textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
+      color: useColorModeValue('gray.300', 'gray.700'),
     }}
     href={'#'}
   >
@@ -42,11 +43,17 @@ export const Navbar = () => {
   return (
     <>
         <Box mt={{md:'22px'}} pos='fixed' w='100%' bg={useColorModeValue('transparent', 'gray.900')} px={4}>
+      
           <Flex
             h={16}
             alignItems={'center'}
-            justifyContent={{ base: 'space-between', md: 'center' }}
+            pr={20}
+            pl={20}
+            justifyContent={{ base: 'space-between', md: 'space-between' }}
           >
+                <Box fontSize={20}
+          >0749 Producciones
+              </Box>
             <IconButton
               size={'md'}
               icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -54,8 +61,7 @@ export const Navbar = () => {
               display={{ md: 'none' }}
               onClick={isOpen ? onClose : onOpen}
             />
-            <HStack fontSize="18px" spacing={8} alignItems={'center'}>
-              
+            <HStack fontSize="18px" spacing={8} alignItems={'center'}>             
               <HStack
                 as={'nav'}
                 spacing={4}

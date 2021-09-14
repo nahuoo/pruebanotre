@@ -1,75 +1,104 @@
 import {
-    Box,
-    Center,
-    useColorModeValue,
-    Heading,
-    Text,
-    Stack,
-    Image,
-  } from '@chakra-ui/react';
+  Box,
+  Center,
+  useColorModeValue,
+  Heading,
+  Text,
+  Stack,
+  ScaleFade,
+  Image,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  Button,
+} from '@chakra-ui/react'
 
-  export const FilmCard = ({film}: any) => {
+export const FilmCard = ({ film }: any) => {
+  console.log(film)
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  return (
+    <Center py={14} onClick={onOpen}>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>{film.title}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+           {film.description}
+          </ModalBody>
 
-    return (
-      <Center py={12} mx='20px'>
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3} onClick={onClose}>
+              Cerrar
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+
+      <Box
+        role={'group'}
+        p={6}
+        maxW={'330px'}
+        w={'full'}
+        justifyContent={'center'}
+        bg={useColorModeValue('white', 'gray.800')}
+        rounded={'lg'}
+        pos={'relative'}
+        zIndex={1}
+      >
         <Box
-          role={'group'}
-          p={6}
-          maxW={'330px'}
-          w={'full'}
-          bg={useColorModeValue('white', 'gray.800')}
-          boxShadow={'2xl'}
           rounded={'lg'}
+          mt={-12}
           pos={'relative'}
-          zIndex={1}>
-          <Box
+          height={'300px'}
+          _after={{
+            transition: 'all .3s ease',
+            content: '""',
+            w: 'full',
+            h: 'full',
+            pos: 'absolute',
+            top: 5,
+            left: 0,
+            backgroundImage: `${'https:' + film.file.url}`,
+            filter: 'blur(15px)',
+            zIndex: -1,
+          }}
+          _groupHover={{
+            _after: {
+              filter: 'blur(20px)',
+            },
+          }}
+        >
+          <Image
             rounded={'lg'}
-            mt={-12}
-            pos={'relative'}
-            height={'300px'}
-            _after={{
+            height={350}
+            _hover={{
               transition: 'all .3s ease',
-              content: '""',
-              w: 'full',
-              h: 'full',
-              pos: 'absolute',
-              top: 5,
-              left: 0,
-              backgroundImage: `${'https:'+film.file.url}`,
-              filter: 'blur(15px)',
-              zIndex: -1,
+              height: 310,
+              cursor: 'pointer',
+              filter: 'grayscale(80%)',
             }}
-            _groupHover={{
-              _after: {
-                filter: 'blur(20px)',
-                maxW:'400px'
-              },
-            }}>
-            <Image
-              rounded={'lg'}
-              height={300}  
-              width={282}
-              objectFit={'cover'}
-              src={'https:'+film.file.url}
-              _hover={{
-                transition: 'all .3s ease',
-                height: 400,
-                width: 400,
-                cursor: 'pointer',
-              }}
-            />
-          </Box>
-          <Stack pt={10} align={'center'}>
-            <Heading color={'gray.600'} fontSize={'xl'} fontFamily={'body'} fontWeight={500}>
-              {film.title}
-            </Heading>
-            <Stack direction={'row'} align={'center'}>
-              <Text fontWeight={800} fontSize={'xl'}>
-                $57
-              </Text>
-            </Stack>
-          </Stack>
+            width={282}
+            objectFit={'cover'}
+            src={'https:' + film.file.url}
+          />
         </Box>
-      </Center>
-    );
-  }
+        <Stack pt={5} align={'center'}>
+          <Heading
+            color={'gray.600'}
+            fontSize={'xl'}
+            fontFamily={'body'}
+            fontWeight={500}
+          >
+            Más Info
+          </Heading>
+        </Stack>
+      </Box>
+    </Center>
+  )
+}

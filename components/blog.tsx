@@ -120,7 +120,7 @@ const ArticleList = () => {
           <Image mt='60vh'
                 borderRadius="lg"
                 src={
-                  '/kiara2.jpeg'
+                  '/img_9066.jpg'
                 }
                 alt="some good alt text"
                 objectFit="contain"

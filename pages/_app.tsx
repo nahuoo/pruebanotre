@@ -2,12 +2,12 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
 import { extendTheme } from '@chakra-ui/react'
-import "@fontsource/arimo"
+import "@fontsource/laila"
 
 const theme = extendTheme({
   fonts: {
-    link: "Arimo",
-    body: "Arimo",
+    link: "laila",
+    body: "laila",
   },
 })
 

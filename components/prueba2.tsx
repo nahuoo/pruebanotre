@@ -14,7 +14,7 @@ import {
           w={'full'}
           h={'70vh'}
           backgroundImage={
-            './kiara2.jpeg'
+            './img_9066.jpg'
           }
           backgroundSize={'cover'}
           backgroundPosition={'center 37%'}
